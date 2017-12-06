@@ -4,6 +4,9 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Set;
 
+/**
+ * 1 hour
+ */
 public class Task21 {
 
     public static LinkedList<Integer> removeDuplicates(LinkedList<Integer> list){

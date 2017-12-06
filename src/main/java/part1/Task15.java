@@ -4,7 +4,7 @@ package part1;
  * Существуют три вида модифицирующих операций со строками: вставка символа, удаление символа и замена символа.
  * Напишите фнукцию, которая проверяет, находятся ли две строки на расстоянии одной модификации (или нуля модификаций)
  *
- * 2 часа
+ * 2 hours
  */
 public class Task15 {
 
@@ -23,7 +23,7 @@ public class Task15 {
                 }
             }
         } else if (Math.abs(firstLength - secondLength) == 1) {
-            boolean isFirstShorter = firstLength < secondLength ? true : false;
+            boolean isFirstShorter = firstLength < secondLength;
             if (isFirstShorter) {
                 for (int i = 0; i < firstLength; i++) {
                     if (firstWord[i] != secondWord[i]) {
@@ -52,6 +52,6 @@ public class Task15 {
             return false;
         }
 
-        return modificationsCount > 1 ? false : true;
+        return modificationsCount <= 1;
     }
 }

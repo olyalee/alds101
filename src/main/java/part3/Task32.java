@@ -2,6 +2,9 @@ package part3;
 
 import java.util.EmptyStackException;
 
+/**
+ * 1.5 hours
+ */
 public class Task32 {
 
 }

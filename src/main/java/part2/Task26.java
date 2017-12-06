@@ -2,6 +2,9 @@ package part2;
 
 import java.util.LinkedList;
 
+/**
+ * 1.5 hours
+ */
 public class Task26 {
 
     public static boolean isPalindrome(LinkedList<String> list) {

@@ -2,6 +2,9 @@ package part2;
 
 import java.util.LinkedList;
 
+/**
+ * 1.5 hours
+ */
 public class Task25 {
 
     public static LinkedList<Integer> linkedListSum(LinkedList<Integer> one, LinkedList<Integer> two) {

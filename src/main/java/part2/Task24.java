@@ -2,6 +2,9 @@ package part2;
 
 import java.util.LinkedList;
 
+/**
+ * 1.5 hours
+ */
 public class Task24 {
 
     public static LinkedList<Integer> splitList(LinkedList<Integer> list, Integer pivot) {
