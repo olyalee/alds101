@@ -5,29 +5,35 @@ package part16;
  */
 public class Task161 {
 
-    public static void swap(Value a, Value b){
+    public static void swap(Value a, Value b) {
         a.aPlusB(b);
         b.adjustB(a);
         a.adjustA(b);
     }
+
+    public static void swap(int a, int b) {
+        a = a + b;
+        b = a - b;
+        a = a - b;
+    }
 }
 
-class Value{
+class Value {
     int data;
 
-    public Value(int data){
+    public Value(int data) {
         this.data = data;
     }
 
-    void aPlusB(Value b){
+    void aPlusB(Value b) {
         this.data += b.data;
     }
 
-    void adjustB(Value a){
+    void adjustB(Value a) {
         this.data = a.data - this.data;
     }
 
-    void adjustA(Value b){
+    void adjustA(Value b) {
         this.data = this.data - b.data;
     }
 }
