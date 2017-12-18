@@ -1,40 +1,41 @@
 package test;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
-/**
- * it's very inefficient so far - need to figure out the way to improve it
- */
+
 public class Numbers {
-    private static List<Integer> listOfNumbers;
+    private static Map<Integer, Set<Integer>> map;
+    private static int MAX_NUM = 987654321;
 
-    public static HashMap<Integer, Integer> getDelimeterWithNumbers(int[] numbers) {
-        HashMap<Integer, Integer> pairs = new HashMap<>();
-        listOfNumbers = new ArrayList<>();
-        getSet(numbers, numbers.length);
+    public static Map<Integer, Set<Integer>> getDividendsAndDivisors(int[] numbers) {
+        map = new HashMap<>();
+        addAllPossibleNumbersToMap(numbers, numbers.length);
 
-        System.out.println("Numbers quantity " + listOfNumbers.size());
+        Integer dividend;
 
-        for (int num = listOfNumbers.size() - 1; num > 0; num--) {
-            for (int del = listOfNumbers.size() - 1; del > 0; del--) {
-                if (num != del & listOfNumbers.get(num) % listOfNumbers.get(del) == 0) {
-                    pairs.put(listOfNumbers.get(del), listOfNumbers.get(num));
+        for (Integer divisor : map.keySet()) {
+            for (int i = 2; i <= MAX_NUM / divisor; i++) {
+                dividend = divisor * i;
+                if (map.containsKey(dividend)) {
+                    map.putIfAbsent(dividend, new HashSet<>());
+                    map.get(dividend).add(divisor);
                 }
             }
         }
-        return pairs;
+
+        map.values().removeAll(Collections.singleton(null));
+
+        return map;
     }
 
-    static void getSet(int[] numbers, int pos) {
+    static void addAllPossibleNumbersToMap(int[] numbers, int pos) {
         if (pos < 2) {
             Integer number = getInteger(numbers);
-            listOfNumbers.add(number);
+            map.putIfAbsent(number, null);
         } else {
             for (int i = 0; i < pos; i++) {
                 swap(numbers, i, pos - 1);
-                getSet(numbers, pos - 1);
+                addAllPossibleNumbersToMap(numbers, pos - 1);
                 swap(numbers, i, pos - 1);
             }
         }
